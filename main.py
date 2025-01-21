@@ -40,10 +40,12 @@ class FaceAttendanceSystem:
 
             frame = cv2.flip(frame, 1)
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            faces = self.face_detector.face_cascade.detectMultiScale(gray, 1.3, 5)
+            gray_umat = cv2.UMat(gray)  # Convert to UMat for GPU
+
+            faces = self.face_detector.face_cascade.detectMultiScale(gray_umat, 1.3, 5)
 
             for (x, y, w, h) in faces:
-                face_img = gray[y:y+h, x:x+w]
+                face_img = gray_umat.get()[y:y+h, x:x+w]  # Extract face from UMat
                 label_id, confidence = self.face_detector.face_recognizer.predict(face_img)
 
                 if confidence < self.config.CONFIDENCE_THRESHOLD:
