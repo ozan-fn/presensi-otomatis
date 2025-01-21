@@ -37,15 +37,6 @@ Ikuti langkah-langkah berikut untuk mengatur dan menjalankan proyek ini di siste
     numpy
     ```
 
-## Konfigurasi
-
-1. **Dataset Wajah**:
-   - Tambahkan gambar wajah dosen dan karyawan yang telah terdaftar di folder `dataset`.
-   - Pastikan setiap gambar diberi nama dengan format `employee_id.jpg`.
-
-2. **Konfigurasi Parameter**:
-   - Sesuaikan parameter yang dibutuhkan di file `config.py` (jika tersedia).
-
 ## Menjalankan Proyek
 
 Untuk menjalankan proyek ini, cukup jalankan perintah berikut:
